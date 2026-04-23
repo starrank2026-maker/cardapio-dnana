@@ -14,124 +14,26 @@
       --shadow: rgba(176,26,26,0.13);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-    }
-    header {
-      background: var(--dark);
-      padding: 32px 20px 24px;
-      text-align: center;
-    }
-    .logo-ring {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 88px; height: 88px;
-      border-radius: 50%;
-      border: 3px solid var(--gold);
-      background: var(--red);
-      font-size: 44px;
-      margin-bottom: 14px;
-      box-shadow: 0 0 28px rgba(212,160,23,.35);
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      font-weight: 900;
-      color: #fff;
-    }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); }
+    header { background: var(--dark); padding: 32px 20px 24px; text-align: center; }
+    .logo-ring { display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 88px; border-radius: 50%; border: 3px solid var(--gold); background: var(--red); font-size: 44px; margin-bottom: 14px; box-shadow: 0 0 28px rgba(212,160,23,.35); }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 900; color: #fff; }
     header h1 span { color: var(--gold); }
-    header p {
-      margin-top: 8px;
-      font-size: .85rem;
-      color: rgba(255,255,255,.6);
-      font-style: italic;
-    }
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 28px 20px 10px;
-    }
-    .section-label h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: var(--red);
-      white-space: nowrap;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--gold), transparent);
-    }
-    .menu-gallery {
-      padding: 0 16px 8px;
-    }
-    .menu-card {
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px var(--shadow);
-      margin-bottom: 18px;
-    }
-    .menu-card img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-    }
-    .card-tag {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px 14px;
-    }
-    .card-tag .dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--red);
-    }
-    .card-tag span {
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 4px 20px;
-      opacity: .5;
-    }
-    footer {
-      margin: 28px 16px 32px;
-      background: var(--dark);
-      border-radius: 18px;
-      padding: 22px 20px;
-      text-align: center;
-      color: rgba(255,255,255,.75);
-    }
-    footer .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-    footer .tel {
-      display: block;
-      margin-top: 10px;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    footer .address {
-      margin-top: 4px;
-      font-size: .78rem;
-      color: rgba(255,255,255,.5);
-    }
+    header p { margin-top: 8px; font-size: .85rem; color: rgba(255,255,255,.6); font-style: italic; }
+    .section-label { display: flex; align-items: center; gap: 10px; padding: 28px 20px 10px; }
+    .section-label h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--red); white-space: nowrap; }
+    .section-label::after { content: ''; flex: 1; height: 2px; background: linear-gradient(to right, var(--gold), transparent); }
+    .menu-gallery { padding: 0 16px 8px; }
+    .menu-card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 20px var(--shadow); margin-bottom: 18px; }
+    .menu-card img { width: 100%; display: block; border-radius: 18px; }
+    .card-tag { display: flex; align-items: center; gap: 8px; padding: 12px 16px 14px; }
+    .card-tag .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
+    .card-tag span { font-size: .82rem; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
+    .divider { height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 4px 20px; opacity: .5; }
+    footer { margin: 28px 16px 32px; background: var(--dark); border-radius: 18px; padding: 22px 20px; text-align: center; color: rgba(255,255,255,.75); }
+    footer .footer-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 6px; }
+    footer .tel { display: block; margin-top: 10px; font-size: 1rem; font-weight: 700; color: #fff; }
+    footer .address { margin-top: 4px; font-size: .78rem; color: rgba(255,255,255,.5); }
   </style>
 </head>
 <body>
@@ -145,7 +47,7 @@
   <div class="section-label"><h2>🍕 Pizzas Especiais</h2></div>
   <div class="menu-gallery">
     <div class="menu-card">
-      <img src="IMG-20260421-WA0034_2_.jpg" alt="Pizzas Especiais" />
+      <img src="IMG-20260421-WA0034(2).jpg" alt="Pizzas Especiais" />
       <div class="card-tag"><div class="dot"></div><span>Sabores 1 – 13 · Broto ao Família</span></div>
     </div>
   </div>
@@ -155,7 +57,7 @@
   <div class="section-label"><h2>🍕 Pizzas Tradicionais</h2></div>
   <div class="menu-gallery">
     <div class="menu-card">
-      <img src="IMG-20260421-WA0037_2_.jpg" alt="Pizzas Tradicionais" />
+      <img src="IMG-20260421-WA0037(2).jpg" alt="Pizzas Tradicionais" />
       <div class="card-tag"><div class="dot"></div><span>Sabores 14 – 23 · Broto ao Família</span></div>
     </div>
   </div>
@@ -165,7 +67,7 @@
   <div class="section-label"><h2>🥤 Bebidas</h2></div>
   <div class="menu-gallery">
     <div class="menu-card">
-      <img src="IMG-20260421-WA0040_3_.jpg" alt="Bebidas" />
+      <img src="IMG-20260421-WA0040(3).jpg" alt="Bebidas" />
       <div class="card-tag"><div class="dot"></div><span>Sucos · Refrigerantes · Alcoólicas</span></div>
     </div>
   </div>
@@ -175,7 +77,7 @@
   <div class="section-label"><h2>🍟 Porções</h2></div>
   <div class="menu-gallery">
     <div class="menu-card">
-      <img src="IMG-20260421-WA0041_3_.jpg" alt="Porções" />
+      <img src="IMG-20260421-WA0041(3).jpg" alt="Porções" />
       <div class="card-tag"><div class="dot"></div><span>Carne de Sol · Frango · Batata Frita e mais</span></div>
     </div>
   </div>
