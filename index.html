@@ -177,6 +177,7 @@ footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 
   <a href="#especiais">🍕 Especiais</a>
   <a href="#tradicionais">🍕 Tradicionais</a>
   <a href="#porcoes">🍟 Porções</a>
+  <a href="#acrescimos">➕ Acréscimos</a>
 </nav></div>
 
 <!-- PIZZAS ESPECIAIS -->
@@ -215,6 +216,16 @@ footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 
 
 <div class="divider"></div>
 
+<!-- ACRÉSCIMOS -->
+<section id="acrescimos"><div class="container">
+  <div class="sec-head">
+    <div class="sec-title">➕ Acréscimos</div>
+    <div class="sec-sub">Cobrados por pizza</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="card-grid" id="g-acres"></div>
+</div></section>
+
 <!-- FOOTER -->
 <footer>
   <div class="flogo">Pizzas <em>D'Nana</em></div>
@@ -240,6 +251,13 @@ footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 
   <div class="mtitle" id="m-title">Finalizar Pedido</div>
   <div class="msub" id="m-sub"></div>
   <div class="mres" id="m-res"></div>
+
+  <!-- BORDA -->
+  <div id="g-borda" style="display:none">
+    <div class="fsec">🔵 Borda Recheada (opcional)</div>
+    <div class="mopt-grid" id="op-borda"></div>
+    <div class="nenhuma" id="borda-n">Nenhuma — sem borda recheada</div>
+  </div>
 
   <!-- ACRÉSCIMO -->
   <div id="g-acr" style="display:none">
@@ -288,10 +306,11 @@ footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 
 
 <script>
 const WPP = "5533988832199";
-let atual = {}, acrSel = '', bebSel = '';
+let atual = {}, bordaSel = '', acrSel = '', bebSel = '';
 
 const BG_PIZZA  = "background:linear-gradient(135deg,#1E0900,#3D1500,#5A2200)";
 const BG_PORCAO = "background:linear-gradient(135deg,#2C1000,#5A2500)";
+const BG_ACRES  = "background:linear-gradient(135deg,#2A0A0A,#5A1010)";
 
 // ── BEBIDAS (todas as categorias) ────────────────────────
 const bebidas = [
@@ -337,42 +356,56 @@ const bebidas = [
   {n:"Coquetel de Frutas — Kiwi, Abacaxi, Uva, Morango e Maracujá",m:"Dose",p:"R$ 15,00"},
 ];
 
+const bordas = [
+  {n:"Catupiry",v:"R$ 4,00"},{n:"Cheddar",v:"R$ 4,00"},
+  {n:"Bacon",v:"R$ 5,00"},{n:"Queijo",v:"R$ 5,00"},
+];
+
+const acrescimos = [
+  {id:"a1",nome:"Catupiry",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🧀",tipo:"direto",preco:"R$ 4,00"},
+  {id:"a2",nome:"Cheddar",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🧀",tipo:"direto",preco:"R$ 5,00"},
+  {id:"a3",nome:"Bacon",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🥓",tipo:"direto",preco:"R$ 5,00"},
+  {id:"a4",nome:"Palmito",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🌿",tipo:"direto",preco:"R$ 4,00"},
+  {id:"a5",nome:"Azeitonas",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🫒",tipo:"direto",preco:"R$ 4,00"},
+  {id:"a6",nome:"Ovos Cozido",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🥚",tipo:"direto",preco:"R$ 3,00"},
+  {id:"a7",nome:"Cebola e Pimentão",desc:"Por pizza",foto:"",bg:BG_ACRES,ico:"🌶️",tipo:"direto",preco:"R$ 3,00"},
+];
 
 const especiais = [
-  {id:"e1",num:"1",nome:"Frango Catupiry",desc:"Frango, catupiry, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"01.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e2",num:"2",nome:"Jardineira",desc:"Frango, palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"02.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e3",num:"3",nome:"Portuguesa",desc:"Presunto, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"03.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e4",num:"4",nome:"Mexicana",desc:"Presunto, bacon, pimenta, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"04.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e5",num:"5",nome:"Marguerita",desc:"Mussarela, parmezão, tomate, orégano, azeitona, milho verde e ervilha",foto:"05.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e6",num:"6",nome:"Salame",desc:"Salame, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"06.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e7",num:"7",nome:"Camarão",desc:"Camarão, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"07.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e8",num:"8",nome:"Bacalhau",desc:"Bacalhau, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"08.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e9",num:"9",nome:"Carne Seca",desc:"Carne seca, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"09.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e10",num:"10",nome:"Saltenha D/ Carne",desc:"Carne seca, uvas passas, pimenta, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"10.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e11",num:"11",nome:"A Moda D'Nana Calabresa",desc:"Calabresa, bacon, palmito, mussarela, tomate, orégano, milho verde e ervilha",foto:"11.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e12",num:"12",nome:"A Moda D'Nana Frango",desc:"Frango, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"12.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e13",num:"13",nome:"A Moda D'Nana Presunto",desc:"Presunto, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"13.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 27,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e1",num:"1",nome:"Frango Catupiry",desc:"Frango, catupiry, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {id:"e2",num:"2",nome:"Jardineira",desc:"Frango, palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {id:"e3",num:"3",nome:"Portuguesa",desc:"Presunto, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {id:"e4",num:"4",nome:"Mexicana",desc:"Presunto, bacon, pimenta, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {id:"e5",num:"5",nome:"Marguerita",desc:"Mussarela, parmezão, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {id:"e6",num:"6",nome:"Salame",desc:"Salame, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e7",num:"7",nome:"Camarão",desc:"Camarão, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e8",num:"8",nome:"Bacalhau",desc:"Bacalhau, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e9",num:"9",nome:"Carne Seca",desc:"Carne seca, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e10",num:"10",nome:"Saltenha D/ Carne",desc:"Carne seca, uvas passas, pimenta, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e11",num:"11",nome:"A Moda D'Nana Calabresa",desc:"Calabresa, bacon, palmito, mussarela, tomate, orégano, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e12",num:"12",nome:"A Moda D'Nana Frango",desc:"Frango, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {id:"e13",num:"13",nome:"A Moda D'Nana Presunto",desc:"Presunto, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 27,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
 ];
 
 const tradicionais = [
-  {id:"t14",num:"14",nome:"Frango",desc:"Frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"14.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t15",num:"15",nome:"Calabresa",desc:"Calabresa, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"15.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t16",num:"16",nome:"Presunto",desc:"Presunto, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"16.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t17",num:"17",nome:"Atum",desc:"Atum, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"17.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t18",num:"18",nome:"Bacon",desc:"Bacon, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"18.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t19",num:"19",nome:"Mussarela",desc:"Mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"19.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t14",num:"14",nome:"Frango",desc:"Frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t15",num:"15",nome:"Calabresa",desc:"Calabresa, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t16",num:"16",nome:"Presunto",desc:"Presunto, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t17",num:"17",nome:"Atum",desc:"Atum, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t18",num:"18",nome:"Bacon",desc:"Bacon, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t19",num:"19",nome:"Mussarela",desc:"Mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
   {id:"t20",num:"20",nome:"Palmito",desc:"Palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t21",num:"21",nome:"Milho Verde",desc:"Milho verde, mussarela, tomate, orégano, azeitona e ervilha",foto:"21.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t22",num:"22",nome:"3 Queijos",desc:"Catupiry, cheddar, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"22.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t23",num:"23",nome:"Moda da Casa",desc:"Calabresa, presunto, atum, frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"23.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t21",num:"21",nome:"Milho Verde",desc:"Milho verde, mussarela, tomate, orégano, azeitona e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t22",num:"22",nome:"3 Queijos",desc:"Catupiry, cheddar, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {id:"t23",num:"23",nome:"Moda da Casa",desc:"Calabresa, presunto, atum, frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
 ];
 
 const porcoes = [
-  {id:"p1",nome:"Carne de Sol com Aipim",desc:"ou Batata Frita",foto:"p01.jpg",bg:BG_PORCAO,ico:"🥩",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
-  {id:"p2",nome:"Calabresa Defumada c/Queijo",desc:"ou Batata Frita",foto:"p02.jpg",bg:BG_PORCAO,ico:"🌭",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
-  {id:"p3",nome:"Frango a Passarinha",desc:"com Batata Frita",foto:"p03.jpg",bg:BG_PORCAO,ico:"🍗",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
-  {id:"p4",nome:"Batata Frita",desc:"Crocante e sequinha",foto:"p04.jpg",bg:BG_PORCAO,ico:"🍟",tipo:"porcao",precos:{P:"R$ 20,00",M:"R$ 25,00",G:"R$ 30,00"}},
-  {id:"p5",nome:"Tábua de Frios",desc:"Queijo, Presunto e Azeitona",foto:"p05.jpg",bg:BG_PORCAO,ico:"🧀",tipo:"porcao",precos:{P:"R$ 30,00",M:"R$ 40,00"}},
+  {id:"p1",nome:"Carne de Sol com Aipim",desc:"ou Batata Frita",foto:"",bg:BG_PORCAO,ico:"🥩",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
+  {id:"p2",nome:"Calabresa Defumada c/Queijo",desc:"ou Batata Frita",foto:"",bg:BG_PORCAO,ico:"🌭",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
+  {id:"p3",nome:"Frango a Passarinha",desc:"com Batata Frita",foto:"",bg:BG_PORCAO,ico:"🍗",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
+  {id:"p4",nome:"Batata Frita",desc:"Crocante e sequinha",foto:"",bg:BG_PORCAO,ico:"🍟",tipo:"porcao",precos:{P:"R$ 20,00",M:"R$ 25,00",G:"R$ 30,00"}},
+  {id:"p5",nome:"Tábua de Frios",desc:"Queijo, Presunto e Azeitona",foto:"",bg:BG_PORCAO,ico:"🧀",tipo:"porcao",precos:{P:"R$ 30,00",M:"R$ 40,00"}},
 ];
 
 // ── RENDER ─────────────────────────────────────────────────
@@ -417,6 +450,18 @@ function cardPorcao(p) {
   </div>`;
 }
 
+function cardDireto(p) {
+  return `
+  <div class="ucard">
+    <div class="ucard-wrap">${makeImg(p)}</div>
+    <div class="ucard-body">
+      <div class="ucard-name">${p.nome}</div>
+      <div class="ucard-desc">${p.desc}</div>
+      <div class="price-tag">${p.preco}</div>
+      <button class="btn-p-direct" onclick='abrirDireto(${JSON.stringify(p).replace(/'/g,"&#39;")})'>🛒 Pedir</button>
+    </div>
+  </div>`;
+}
 
 function selOpt(btn, cardId) {
   btn.closest('.opts').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('ativo'));
@@ -456,7 +501,7 @@ function abrirPizza(p) {
   const ativo = card.querySelector('.opt-btn.ativo');
   const tam = ativo.querySelector('.on').textContent + ' — ' + ativo.querySelector('.ov').textContent;
   atual = {tipo:'pizza', item:p, tamanho:tam};
-  acrSel = ''; bebSel = '';
+  bordaSel = ''; acrSel = ''; bebSel = '';
 
   document.getElementById('m-title').textContent = '🍕 Finalizar Pedido';
   document.getElementById('m-sub').textContent = p.nome;
@@ -464,15 +509,19 @@ function abrirPizza(p) {
     <div class="mres-nome">🍕 ${p.nome}</div>
     <div class="mres-det">📐 <strong>${tam}</strong><br><span style="font-size:10px;color:var(--gray)">${p.desc}</span></div>`;
 
+  // Borda
+  document.getElementById('g-borda').style.display = 'block';
+  document.getElementById('op-borda').innerHTML = bordas.map(b =>
+    `<div class="mopt-btn" onclick="selBorda(this,'${b.n} (+${b.v})')">
+      <div class="mn">${b.n}</div><div class="mv">+${b.v}</div>
+    </div>`).join('');
+  document.getElementById('borda-n').style.display = 'block';
+
   // Acréscimo
   document.getElementById('g-acr').style.display = 'block';
-  document.getElementById('op-acr').innerHTML = [
-    {n:"Catupiry",p:"R$ 4,00"},{n:"Cheddar",p:"R$ 5,00"},{n:"Bacon",p:"R$ 5,00"},
-    {n:"Palmito",p:"R$ 4,00"},{n:"Azeitonas",p:"R$ 4,00"},
-    {n:"Ovos Cozido",p:"R$ 3,00"},{n:"Cebola e Pimentão",p:"R$ 3,00"},
-  ].map(a =>
-    `<div class="mopt-btn" onclick="selAcr(this,'${a.n} (+${a.p})')">
-      <div class="mn">${a.n}</div><div class="mv">+${a.p}</div>
+  document.getElementById('op-acr').innerHTML = acrescimos.map(a =>
+    `<div class="mopt-btn" onclick="selAcr(this,'${a.nome} (+${a.preco})')">
+      <div class="mn">${a.nome}</div><div class="mv">+${a.preco}</div>
     </div>`).join('');
   document.getElementById('acr-n').style.display = 'block';
 
@@ -488,7 +537,7 @@ function abrirPorcao(p) {
   const ativo = card.querySelector('.opt-btn.ativo');
   const tam = ativo.querySelector('.on').textContent + ' — ' + ativo.querySelector('.ov').textContent;
   atual = {tipo:'porcao', item:p, tamanho:tam};
-  acrSel = ''; bebSel = '';
+  bordaSel = ''; acrSel = ''; bebSel = '';
 
   document.getElementById('m-title').textContent = '🍟 Finalizar Pedido';
   document.getElementById('m-sub').textContent = p.nome;
@@ -496,13 +545,33 @@ function abrirPorcao(p) {
     <div class="mres-nome">${p.ico} ${p.nome}</div>
     <div class="mres-det">📐 <strong>${tam}</strong></div>`;
 
+  document.getElementById('g-borda').style.display = 'none';
   document.getElementById('g-acr').style.display = 'none';
   document.getElementById('g-beb').style.display = 'block';
   renderBebidas();
   abrirModal();
 }
 
+function abrirDireto(p) {
+  atual = {tipo:'direto', item:p};
+  bordaSel = ''; acrSel = ''; bebSel = '';
 
+  document.getElementById('m-title').textContent = '🛒 Finalizar Pedido';
+  document.getElementById('m-sub').textContent = p.nome;
+  document.getElementById('m-res').innerHTML = `
+    <div class="mres-nome">${p.ico} ${p.nome}</div>
+    <div class="mres-det">${p.desc}<br>💰 <strong>${p.preco}</strong></div>`;
+
+  document.getElementById('g-borda').style.display = 'none';
+  document.getElementById('g-acr').style.display = 'none';
+  document.getElementById('g-beb').style.display = 'none';
+  abrirModal();
+}
+
+function selBorda(el, val) {
+  if(el.classList.contains('sel')){el.classList.remove('sel');bordaSel='';document.getElementById('borda-n').style.display='block';}
+  else{document.querySelectorAll('#op-borda .mopt-btn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');bordaSel=val;document.getElementById('borda-n').style.display='none';}
+}
 function selAcr(el, val) {
   if(el.classList.contains('sel')){el.classList.remove('sel');acrSel='';document.getElementById('acr-n').style.display='block';}
   else{document.querySelectorAll('#op-acr .mopt-btn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');acrSel=val;document.getElementById('acr-n').style.display='none';}
@@ -530,6 +599,7 @@ function enviar() {
   if(atual.tipo==='pizza'){
     L.push(`🍕 *Sabor:* ${atual.item.nome}`);
     L.push(`📐 *Tamanho:* ${atual.tamanho}`);
+    if(bordaSel) L.push(`🔵 *Borda:* ${bordaSel}`);
     if(acrSel)   L.push(`➕ *Acréscimo:* ${acrSel}`);
   } else if(atual.tipo==='porcao'){
     L.push(`🍟 *Porção:* ${atual.item.nome}`);
@@ -559,7 +629,7 @@ function enviar() {
 renderGrid(especiais, 'g-esp', cardPizza);
 renderGrid(tradicionais, 'g-trad', cardPizza);
 renderGrid(porcoes, 'g-porcoes', cardPorcao);
-
+renderGrid(acrescimos, 'g-acres', cardDireto);
 </script>
 </body>
 </html>
