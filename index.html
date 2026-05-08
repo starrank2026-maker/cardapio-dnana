@@ -4,171 +4,309 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pizzas D'Nana — Mata Verde MG</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --r:#B01A1A;--r2:#8C1111;
-  --gold:#C8920A;--gold2:#E8A800;
-  --dark:#120600;--dark2:#1E0900;
-  --cream:#FFFAF4;--cream2:#FFF3E0;--cream3:#FFE8C0;
-  --gray:#7A6A5A;--white:#FFFFFF;
-  --green:#25D366;
-  --sh:0 4px 20px rgba(18,6,0,0.09);
-  --sh2:0 8px 36px rgba(18,6,0,0.16);
+  --red:#C01F1F;--red2:#991515;--red3:#7A0F0F;
+  --gold:#D4A017;--gold2:#F0C040;--gold3:#FFF0A0;
+  --dark:#0A0300;--dark2:#180800;--dark3:#2A1000;
+  --cream:#FDF8F0;--cream2:#FAF0DC;--cream3:#F5E8C8;
+  --warm:#8C6E4A;--white:#FFFFFF;--green:#22C55E;
+  --sh:0 2px 16px rgba(10,3,0,0.10);
+  --sh2:0 8px 40px rgba(10,3,0,0.18);
+  --sh3:0 20px 60px rgba(10,3,0,0.28);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
 
-/* HERO */
-.hero{background:linear-gradient(175deg,#0D0200 0%,#1E0900 45%,#2E0E00 100%);padding:50px 20px 44px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(200,146,10,0.18),transparent);}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%);}
-.hero-emoji{font-size:52px;display:block;margin-bottom:12px;filter:drop-shadow(0 4px 16px rgba(200,146,10,0.4));animation:bounce 3s ease-in-out infinite;position:relative;z-index:1;}
-@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,12vw,72px);font-weight:700;color:var(--white);line-height:1;position:relative;z-index:1;}
-.hero-name em{color:var(--gold2);font-style:italic;}
-.hero-tagline{font-size:13px;color:rgba(255,255,255,0.5);font-style:italic;margin-top:10px;position:relative;z-index:1;font-weight:300;}
-.hero-div{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto;position:relative;z-index:1;}
-.hero-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:1;}
-.chip{background:rgba(255,255,255,0.07);border:1px solid rgba(200,146,10,0.25);border-radius:100px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,0.75);font-weight:500;}
-
-/* NAV */
-.nav-wrap{position:sticky;top:0;z-index:200;background:var(--r);box-shadow:0 2px 16px rgba(176,26,26,0.4);}
-nav{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1100px;margin:0 auto;}
-nav::-webkit-scrollbar{display:none;}
-nav a{color:rgba(255,255,255,0.8);text-decoration:none;padding:13px 16px;font-size:11px;font-weight:700;white-space:nowrap;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.2s;border-bottom:3px solid transparent;flex-shrink:0;}
-nav a:hover{color:var(--white);border-bottom-color:var(--gold2);background:rgba(0,0,0,0.12);}
-
-/* LAYOUT */
-.container{max-width:1100px;margin:0 auto;padding:0 16px;}
-section{padding:36px 0;}
-
-/* SECTION HEAD */
-.sec-head{margin-bottom:24px;}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,36px);font-weight:700;color:var(--r);line-height:1;margin-bottom:4px;}
-.sec-sub{font-size:12px;color:var(--gray);}
-.sec-line{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:100px;margin-top:10px;}
-
-/* GRID */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
-
-/* CARD */
-.ucard{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:var(--sh);border:1px solid rgba(18,6,0,0.05);transition:transform 0.22s,box-shadow 0.22s;display:flex;flex-direction:column;}
-.ucard:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
-
-.ucard-wrap{position:relative;}
-.ucard-placeholder{width:100%;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
-.ucard-placeholder span{font-size:42px;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.35));}
-.ucard-placeholder small{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;}
-.ucard-img{width:100%;height:160px;object-fit:cover;display:block;}
-.ucard-badge{position:absolute;top:10px;left:10px;background:var(--r);color:var(--white);font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:0.05em;}
-
-.ucard-body{padding:13px 14px;flex:1;display:flex;flex-direction:column;}
-.ucard-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:3px;}
-.ucard-desc{font-size:10px;color:var(--gray);line-height:1.45;margin-bottom:12px;flex:1;}
-
-/* TAMANHO BOTÕES */
-.opts-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray);margin-bottom:6px;}
-.opts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
-.opt-btn{background:var(--cream2);border:2px solid transparent;border-radius:8px;padding:5px 8px;cursor:pointer;transition:all 0.16s;display:flex;flex-direction:column;align-items:center;min-width:52px;flex:1;}
-.opt-btn:hover{border-color:var(--r);}
-.opt-btn.ativo{background:var(--r);border-color:var(--r);}
-.opt-btn .on{font-size:8px;font-weight:700;text-transform:uppercase;color:var(--gray);transition:color 0.16s;white-space:nowrap;}
-.opt-btn .ov{font-size:10px;font-weight:800;color:var(--r);transition:color 0.16s;}
-.opt-btn.ativo .on,.opt-btn.ativo .ov{color:var(--white);}
-
-.price-tag{font-size:20px;font-weight:800;color:var(--r);margin-bottom:10px;}
-
-.btn-p{width:100%;background:var(--r);color:var(--white);border:none;border-radius:10px;padding:11px;font-size:12px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;display:none;align-items:center;justify-content:center;gap:5px;transition:background 0.2s;animation:fadeIn 0.2s ease;}
-.btn-p.show{display:flex;}
-.btn-p:hover{background:var(--r2);}
-.btn-p-direct{width:100%;background:var(--r);color:var(--white);border:none;border-radius:10px;padding:11px;font-size:12px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;transition:background 0.2s;}
-.btn-p-direct:hover{background:var(--r2);}
-@keyframes fadeIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
-
-/* DIVIDER */
-.divider{height:8px;background:linear-gradient(90deg,var(--cream2),var(--cream3),var(--cream2));}
-
-/* FOOTER */
-footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 20px;text-align:center;}
-.flogo{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--white);}
-.flogo em{color:var(--gold2);font-style:italic;}
-.ftag{font-size:12px;color:rgba(255,255,255,0.4);font-style:italic;margin-top:4px;}
-.fdiv{width:40px;height:1px;background:var(--gold);margin:14px auto;}
-.ftel{font-size:22px;font-weight:800;color:var(--white);display:block;}
-.faddr{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;}
-.fig{font-size:12px;color:var(--gold2);margin-top:4px;}
-.filust{font-size:11px;color:rgba(255,255,255,0.3);margin-top:14px;font-style:italic;border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;}
-.fcopy{font-size:10px;color:rgba(255,255,255,0.2);margin-top:10px;}
-
-/* WPP */
-.wpp-btn{position:fixed;bottom:20px;right:16px;background:var(--green);color:var(--white);border-radius:100px;padding:12px 18px;font-weight:800;font-size:13px;text-decoration:none;display:flex;align-items:center;gap:7px;box-shadow:0 6px 24px rgba(37,211,102,0.45);z-index:500;animation:glow 2.5s ease-in-out infinite;}
-@keyframes glow{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.4);}50%{box-shadow:0 6px 36px rgba(37,211,102,0.7);}}
-
-/* MODAL */
-.overlay{display:none;position:fixed;inset:0;background:rgba(12,4,0,0.76);z-index:999;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);}
-.overlay.open{display:flex;}
-.modal{background:var(--white);border-radius:26px 26px 0 0;width:100%;max-width:540px;max-height:92vh;overflow-y:auto;padding:18px 18px 48px;animation:slideUp 0.3s cubic-bezier(0.32,0.72,0,1);}
-@keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
-.mbar{width:34px;height:4px;background:#E0D8D0;border-radius:100px;margin:0 auto 18px;}
-.mtitle{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:2px;}
-.msub{font-size:12px;color:var(--gray);margin-bottom:14px;}
-.mres{background:var(--cream2);border-radius:12px;padding:12px 14px;margin-bottom:16px;border-left:4px solid var(--r);}
-.mres-nome{font-size:14px;font-weight:800;color:var(--dark);}
-.mres-det{font-size:11px;color:var(--gray);margin-top:3px;line-height:1.5;}
-
-.fsec{font-size:10px;font-weight:800;color:var(--r);text-transform:uppercase;letter-spacing:0.1em;margin:16px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--cream2);}
-.flabel{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--gray);margin-bottom:5px;}
-.fctl{width:100%;padding:11px 13px;border:2px solid #EDE6DE;border-radius:10px;font-size:14px;font-family:'Outfit',sans-serif;color:var(--dark);background:var(--cream);transition:border-color 0.2s;appearance:none;-webkit-appearance:none;}
-.fctl:focus{outline:none;border-color:var(--r);background:var(--white);}
-.fgrp{margin-bottom:12px;}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-
-/* BEBIDAS NO MODAL */
-.beb-lista{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
-.beb-opt{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--cream2);border:2px solid transparent;
-  border-radius:10px;padding:10px 14px;cursor:pointer;
-  transition:all 0.16s;
+/* ── HERO ── */
+.hero{
+  background:var(--dark);
+  min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px 80px;position:relative;overflow:hidden;
 }
-.beb-opt:hover{border-color:var(--r);}
-.beb-opt.sel{background:var(--r);border-color:var(--r);}
-.beb-opt .bn{font-size:13px;font-weight:700;color:var(--dark);transition:color 0.16s;}
-.beb-opt .bm{font-size:10px;color:var(--gray);margin-top:1px;transition:color 0.16s;}
-.beb-opt .bp{font-size:13px;font-weight:800;color:var(--r);white-space:nowrap;margin-left:10px;transition:color 0.16s;}
-.beb-opt.sel .bn,.beb-opt.sel .bm,.beb-opt.sel .bp{color:var(--white);}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 110%, rgba(192,31,31,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(212,160,23,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 10% 30%, rgba(212,160,23,0.08) 0%, transparent 50%);
+}
+.hero-grain{
+  position:absolute;inset:0;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+.hero-circle{
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  border:1px solid rgba(212,160,23,0.08);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.hero-circle2{
+  position:absolute;
+  width:900px;height:900px;
+  border-radius:50%;
+  border:1px solid rgba(212,160,23,0.04);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.hero-content{position:relative;z-index:2;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(212,160,23,0.12);
+  border:1px solid rgba(212,160,23,0.3);
+  border-radius:100px;padding:6px 16px;
+  font-size:11px;font-weight:600;color:var(--gold2);
+  letter-spacing:0.12em;text-transform:uppercase;
+  margin-bottom:28px;
+}
+.hero-emoji{font-size:72px;display:block;margin-bottom:20px;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 8px 24px rgba(192,31,31,0.5));}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-12px) rotate(2deg);}}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,14vw,96px);
+  font-weight:900;color:var(--white);
+  line-height:0.9;letter-spacing:-0.02em;
+  margin-bottom:6px;
+}
+.hero-title em{color:var(--gold2);font-style:italic;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.4);font-weight:300;margin-top:16px;letter-spacing:0.04em;}
+.hero-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:4px;}
+.chip{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:100px;padding:7px 16px;
+  font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;
+}
+.hero-scroll{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+.hero-scroll-arrow{width:1px;height:32px;background:linear-gradient(to bottom,rgba(255,255,255,0.3),transparent);}
 
-/* BORDAS/ACRES no modal */
-.mopt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px;margin-bottom:4px;}
-.mopt-btn{background:var(--cream2);border:2px solid transparent;border-radius:9px;padding:7px;text-align:center;cursor:pointer;transition:all 0.16s;font-family:'Outfit',sans-serif;}
-.mopt-btn:hover{border-color:var(--r);}
-.mopt-btn.sel{background:var(--r);border-color:var(--r);}
-.mopt-btn .mn{font-size:11px;font-weight:700;color:var(--dark);transition:color 0.16s;}
-.mopt-btn .mv{font-size:10px;color:var(--gray);margin-top:1px;transition:color 0.16s;}
-.mopt-btn.sel .mn,.mopt-btn.sel .mv{color:var(--white);}
-.nenhuma{font-size:10px;color:var(--gray);font-style:italic;margin-bottom:4px;}
+/* ── NAV ── */
+.nav-wrap{
+  position:sticky;top:0;z-index:300;
+  background:rgba(10,3,0,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(212,160,23,0.15);
+}
+nav{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1200px;margin:0 auto;}
+nav::-webkit-scrollbar{display:none;}
+nav a{
+  color:rgba(255,255,255,0.55);text-decoration:none;
+  padding:14px 18px;font-size:11px;font-weight:600;
+  white-space:nowrap;letter-spacing:0.08em;text-transform:uppercase;
+  transition:all 0.2s;border-bottom:2px solid transparent;flex-shrink:0;
+}
+nav a:hover{color:var(--gold2);border-bottom-color:var(--gold2);}
 
-.btn-enviar{width:100%;background:var(--green);color:var(--white);border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:800;font-family:'Outfit',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;transition:all 0.2s;}
-.btn-enviar:hover{background:#1EB857;transform:scale(1.01);}
-.btn-cancel{width:100%;background:none;border:2px solid #EDE6DE;border-radius:10px;padding:11px;font-size:13px;font-weight:600;font-family:'Outfit',sans-serif;color:var(--gray);cursor:pointer;margin-top:8px;}
-.btn-cancel:hover{border-color:var(--gray);}
+/* ── LAYOUT ── */
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
+section{padding:56px 0;}
+
+/* ── SEC HEAD ── */
+.sec-head{margin-bottom:32px;}
+.sec-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+.sec-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);max-width:60px;}
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,5vw,42px);font-weight:700;
+  color:var(--dark);line-height:1;
+}
+.sec-title em{color:var(--red);font-style:italic;}
+
+/* ── PIZZA GRID ── */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+
+.ucard{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  box-shadow:var(--sh);border:1px solid rgba(10,3,0,0.06);
+  transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.28s;
+  display:flex;flex-direction:column;
+}
+.ucard:hover{transform:translateY(-6px) scale(1.01);box-shadow:var(--sh3);}
+
+.ucard-img-wrap{position:relative;overflow:hidden;}
+.ucard-img{width:100%;height:180px;object-fit:cover;display:block;transition:transform 0.4s ease;}
+.ucard:hover .ucard-img{transform:scale(1.06);}
+.ucard-placeholder{
+  width:100%;height:180px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+}
+.ucard-placeholder span{font-size:48px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));}
+
+.ucard-num{
+  position:absolute;top:12px;left:12px;
+  background:var(--red);color:var(--white);
+  font-size:10px;font-weight:700;padding:4px 10px;
+  border-radius:100px;letter-spacing:0.06em;
+  box-shadow:0 2px 8px rgba(192,31,31,0.4);
+}
+
+.ucard-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+.ucard-name{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-weight:700;color:var(--dark);
+  line-height:1.2;margin-bottom:4px;
+}
+.ucard-desc{font-size:11px;color:var(--warm);line-height:1.5;margin-bottom:14px;flex:1;}
+.ucard-precos{display:flex;flex-wrap:wrap;gap:5px;}
+.preco-tag{
+  background:var(--cream2);border-radius:8px;
+  padding:5px 9px;font-size:10px;font-weight:600;color:var(--dark);
+  border:1px solid var(--cream3);
+}
+.preco-tag span{color:var(--red);font-weight:700;}
+
+/* ── BEBIDAS ── */
+.beb-section{background:var(--dark2);}
+.beb-section .sec-title{color:var(--white);}
+.beb-section .sec-eyebrow{color:var(--gold2);}
+
+.beb-cats{display:flex;flex-direction:column;gap:32px;}
+.beb-cat-title{
+  font-size:11px;font-weight:700;color:var(--gold2);
+  text-transform:uppercase;letter-spacing:0.12em;
+  margin-bottom:12px;padding-bottom:8px;
+  border-bottom:1px solid rgba(212,160,23,0.2);
+  display:flex;align-items:center;gap:8px;
+}
+.beb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;}
+.beb-item{
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;padding:12px 16px;
+  transition:background 0.2s,border-color 0.2s;
+}
+.beb-item:hover{background:rgba(255,255,255,0.07);border-color:rgba(212,160,23,0.2);}
+.beb-info .bn{font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);}
+.beb-info .bm{font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px;}
+.beb-preco{font-size:13px;font-weight:700;color:var(--gold2);white-space:nowrap;margin-left:12px;}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--cream3),transparent);}
+.divider-dark{height:1px;background:linear-gradient(90deg,transparent,rgba(212,160,23,0.15),transparent);}
+
+/* ── FORMULÁRIO ── */
+.form-section{
+  background:var(--dark);
+  position:relative;overflow:hidden;padding:60px 20px;
+}
+.form-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(192,31,31,0.2),transparent);
+}
+.form-wrap{max-width:560px;margin:0 auto;position:relative;z-index:1;}
+.form-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.form-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,6vw,42px);font-weight:700;
+  color:var(--white);line-height:1;margin-bottom:6px;
+}
+.form-title em{color:var(--gold2);font-style:italic;}
+.form-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:32px;}
+
+.fgrp{margin-bottom:16px;}
+.flabel{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:rgba(255,255,255,0.45);margin-bottom:7px;
+}
+.fctl{
+  width:100%;padding:14px 16px;
+  border:1.5px solid rgba(255,255,255,0.1);border-radius:12px;
+  font-size:14px;font-family:'DM Sans',sans-serif;
+  color:var(--white);background:rgba(255,255,255,0.06);
+  transition:border-color 0.2s,background 0.2s;
+}
+.fctl::placeholder{color:rgba(255,255,255,0.25);}
+.fctl:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,0.09);}
+select.fctl option{background:var(--dark2);color:var(--white);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+.btn-enviar{
+  width:100%;
+  background:linear-gradient(135deg,var(--green),#16A34A);
+  color:var(--white);border:none;border-radius:14px;
+  padding:17px;font-size:15px;font-weight:700;
+  font-family:'DM Sans',sans-serif;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:10px;
+  box-shadow:0 4px 24px rgba(34,197,94,0.35);
+  transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-enviar:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 32px rgba(34,197,94,0.45);}
+.btn-enviar:active{transform:scale(0.98);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);
+  border-top:1px solid rgba(212,160,23,0.12);
+  padding:48px 20px;text-align:center;
+}
+.flogo{
+  font-family:'Playfair Display',serif;
+  font-size:32px;font-weight:700;color:var(--white);
+}
+.flogo em{color:var(--gold2);font-style:italic;}
+.ftag{font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;margin-top:4px;}
+.fdiv{width:40px;height:1px;background:var(--gold);margin:18px auto;}
+.ftel{font-size:24px;font-weight:700;color:var(--white);display:block;}
+.faddr{font-size:13px;color:rgba(255,255,255,0.4);margin-top:5px;}
+.fig{font-size:12px;color:var(--gold2);margin-top:4px;}
+.filust{font-size:11px;color:rgba(255,255,255,0.2);margin-top:18px;font-style:italic;border-top:1px solid rgba(255,255,255,0.06);padding-top:18px;}
+.fcopy{font-size:10px;color:rgba(255,255,255,0.15);margin-top:8px;}
+
+/* ── WPP FLOAT ── */
+.wpp-btn{
+  position:fixed;bottom:24px;right:20px;
+  background:linear-gradient(135deg,#25D366,#1DB954);
+  color:var(--white);border-radius:100px;
+  padding:13px 20px;font-weight:700;font-size:13px;
+  text-decoration:none;display:flex;align-items:center;gap:8px;
+  box-shadow:0 6px 28px rgba(37,211,102,0.45);
+  z-index:500;
+  transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+}
+.wpp-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 36px rgba(37,211,102,0.55);}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <span class="hero-emoji">🍕</span>
-  <div class="hero-name">Pizzas <em>D'Nana</em></div>
-  <div class="hero-tagline">Mais sabor, mais qualidade, mais momentos para compartilhar!</div>
-  <div class="hero-div"></div>
-  <div class="hero-chips">
-    <span class="chip">📍 Mata Verde - MG</span>
-    <span class="chip">☎ (33) 98883-2199</span>
-    <span class="chip">🛵 Disk Entrega</span>
-    <span class="chip">📸 @pizzasdnana</span>
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🍕 Cardápio Digital</div>
+    <span class="hero-emoji">🍕</span>
+    <div class="hero-title">Pizzas <em>D'Nana</em></div>
+    <div class="hero-sub">Mais sabor, mais qualidade, mais momentos para compartilhar</div>
+    <div class="hero-line"></div>
+    <div class="hero-chips">
+      <span class="chip">📍 Mata Verde - MG</span>
+      <span class="chip">☎ (33) 98883-2199</span>
+      <span class="chip">🛵 Disk Entrega</span>
+      <span class="chip">📸 @pizzasdnana</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-arrow"></div>
+    Ver Cardápio
   </div>
 </div>
 
@@ -177,26 +315,26 @@ footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 
   <a href="#especiais">🍕 Especiais</a>
   <a href="#tradicionais">🍕 Tradicionais</a>
   <a href="#porcoes">🍟 Porções</a>
+  <a href="#bebidas">🥤 Bebidas</a>
+  <a href="#pedido">📋 Fazer Pedido</a>
 </nav></div>
 
-<!-- PIZZAS ESPECIAIS -->
+<!-- ESPECIAIS -->
 <section id="especiais"><div class="container">
   <div class="sec-head">
-    <div class="sec-title">🍕 Pizzas Especiais</div>
-    <div class="sec-sub">Sabores 1 a 13 — Broto ao Família</div>
-    <div class="sec-line"></div>
+    <div class="sec-eyebrow">Sabores 1 a 13</div>
+    <div class="sec-title">Pizzas <em>Especiais</em></div>
   </div>
   <div class="card-grid" id="g-esp"></div>
 </div></section>
 
 <div class="divider"></div>
 
-<!-- PIZZAS TRADICIONAIS -->
+<!-- TRADICIONAIS -->
 <section id="tradicionais"><div class="container">
   <div class="sec-head">
-    <div class="sec-title">🍕 Pizzas Tradicionais</div>
-    <div class="sec-sub">Sabores 14 a 23 — Broto ao Família</div>
-    <div class="sec-line"></div>
+    <div class="sec-eyebrow">Sabores 14 a 23</div>
+    <div class="sec-title">Pizzas <em>Tradicionais</em></div>
   </div>
   <div class="card-grid" id="g-trad"></div>
 </div></section>
@@ -206,344 +344,275 @@ footer{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 
 <!-- PORÇÕES -->
 <section id="porcoes"><div class="container">
   <div class="sec-head">
-    <div class="sec-title">🍟 Porções</div>
-    <div class="sec-sub">Carne de Sol, Frango, Batata Frita e mais</div>
-    <div class="sec-line"></div>
+    <div class="sec-eyebrow">Para compartilhar</div>
+    <div class="sec-title"><em>Porções</em></div>
   </div>
   <div class="card-grid" id="g-porcoes"></div>
 </div></section>
 
-<div class="divider"></div>
+<!-- BEBIDAS -->
+<section id="bebidas" class="beb-section"><div class="container">
+  <div class="sec-head">
+    <div class="sec-eyebrow" style="color:var(--gold2)">Para acompanhar</div>
+    <div class="sec-title">🥤 <em style="color:var(--gold2)">Bebidas</em></div>
+  </div>
+  <div class="beb-cats">
+
+    <div>
+      <div class="beb-cat-title">🍹 Sucos & Água</div>
+      <div class="beb-grid">
+        <div class="beb-item"><div class="beb-info"><div class="bn">Suco de Abacaxi</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 6,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Suco de Maracujá</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 6,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Suco de Manga</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 6,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Suco de Goiaba</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 6,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Suco de Limão</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 6,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Suco de Laranja</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 8,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Água Mineral</div><div class="bm">500ml</div></div><div class="beb-preco">R$ 3,00</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="beb-cat-title">🥤 Refrigerantes & Energético</div>
+      <div class="beb-grid">
+        <div class="beb-item"><div class="beb-info"><div class="bn">Red Bull</div><div class="bm">Energético — Lata</div></div><div class="beb-preco">R$ 12,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Refrigerante</div><div class="bm">Lata 350ml</div></div><div class="beb-preco">R$ 5,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Refrigerante</div><div class="bm">Garrafa 1L</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Refrigerante</div><div class="bm">Garrafa 2L</div></div><div class="beb-preco">R$ 16,00</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="beb-cat-title">🍺 Cervejas</div>
+      <div class="beb-grid">
+        <div class="beb-item"><div class="beb-info"><div class="bn">Cerveja Itaipava</div><div class="bm">Lata 350ml</div></div><div class="beb-preco">R$ 4,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Cerveja Skol / Brahma Chopp</div><div class="bm">Lata 350ml</div></div><div class="beb-preco">R$ 5,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Petra / Devassa / Imperio / Brahma Duplo Malte</div><div class="bm">Lata 350ml</div></div><div class="beb-preco">R$ 5,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Long Neck Budweiser / Eisbahn / Bohemia</div><div class="bm">Long Neck</div></div><div class="beb-preco">R$ 8,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Long Neck Corona / Stella / Heineken</div><div class="bm">Long Neck</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Ice Smirnoff / 51 / Cabaré</div><div class="bm">Ice</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Ice</div><div class="bm">Ice</div></div><div class="beb-preco">R$ 7,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Skol Beats</div><div class="bm">Lata</div></div><div class="beb-preco">R$ 10,00</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="beb-cat-title">🥃 Destilados & Drinks</div>
+      <div class="beb-grid">
+        <div class="beb-item"><div class="beb-info"><div class="bn">Whisky Old Parr</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 30,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Whisky Black Label</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 30,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Whisky Red Label</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 20,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Whisky Cavalo Branco</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 15,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Whisky Balantines</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 15,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Whisky Passport</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Montila Limon</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Montila Cristal</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Domecq</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Domecq c/ Mel</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Bacardi</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Campari</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Vinho</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Vodka Orloff / Skyy / Smirnoff</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 8,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Conhaque Dreher</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 5,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Caipirinha</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 13,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Coquetel de Frutas</div><div class="bm">Kiwi, Abacaxi, Uva, Morango e Maracujá</div></div><div class="beb-preco">R$ 15,00</div></div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- FORMULÁRIO -->
+<div class="form-section" id="pedido">
+  <div class="form-wrap">
+    <div class="form-eyebrow">Delivery</div>
+    <div class="form-title">Fazer <em>Pedido</em></div>
+    <div class="form-sub">Preencha os campos e envie direto pelo WhatsApp 🍕</div>
+
+    <div class="fgrp">
+      <label class="flabel">👤 Seu Nome</label>
+      <input type="text" class="fctl" id="f-nome" placeholder="Como devemos te chamar?">
+    </div>
+    <div class="fgrp">
+      <label class="flabel">🍕 Sabor da Pizza</label>
+      <input type="text" class="fctl" id="f-sabor" placeholder="Ex: Frango Catupiry, Calabresa...">
+    </div>
+    <div class="fgrp">
+      <label class="flabel">📐 Tamanho</label>
+      <input type="text" class="fctl" id="f-tamanho" placeholder="Ex: Broto, Pequena, Média, Grande, Família">
+    </div>
+    <div class="fgrp">
+      <label class="flabel">🥤 Bebida (opcional)</label>
+      <input type="text" class="fctl" id="f-bebida" placeholder="Ex: Refrigerante 2L, Cerveja...">
+    </div>
+    <div class="fgrp">
+      <label class="flabel">🏠 Endereço</label>
+      <input type="text" class="fctl" id="f-end" placeholder="Rua, número, bairro">
+    </div>
+    <div class="fgrp">
+      <label class="flabel">📌 Ponto de Referência (opcional)</label>
+      <input type="text" class="fctl" id="f-ref" placeholder="Ex: Próximo à praça">
+    </div>
+    <div class="frow">
+      <div class="fgrp">
+        <label class="flabel">💳 Pagamento</label>
+        <select class="fctl" id="f-pag">
+          <option value="">Selecione</option>
+          <option>Pix</option>
+          <option>Dinheiro</option>
+          <option>Cartão de Débito</option>
+          <option>Cartão de Crédito</option>
+        </select>
+      </div>
+      <div class="fgrp">
+        <label class="flabel">💵 Troco para</label>
+        <input type="text" class="fctl" id="f-troco" placeholder="Ex: R$ 50,00">
+      </div>
+    </div>
+    <div class="fgrp">
+      <label class="flabel">📝 Observações (opcional)</label>
+      <textarea class="fctl" id="f-obs" rows="2" placeholder="Ex: sem cebola, bem assada..."></textarea>
+    </div>
+
+    <button class="btn-enviar" onclick="enviar()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar Pedido pelo WhatsApp
+    </button>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="flogo">Pizzas <em>D'Nana</em></div>
-  <div class="ftag">Mais sabor, mais qualidade, mais momentos para compartilhar!</div>
+  <div class="ftag">Mais sabor, mais qualidade, mais momentos para compartilhar</div>
   <div class="fdiv"></div>
   <span class="ftel">☎ (33) 98883-2199</span>
   <div class="faddr">📍 Praça da Prefeitura, Mata Verde - MG</div>
   <div class="fig">📸 @pizzasdnana</div>
-  <div class="filust">📸 As imagens exibidas neste cardápio são meramente ilustrativas e podem variar em relação ao produto final.</div>
+  <div class="filust">📸 As imagens exibidas são meramente ilustrativas e podem variar em relação ao produto final.</div>
   <div class="fcopy">© 2025 Pizzas D'Nana — Todos os direitos reservados</div>
 </footer>
 
 <!-- WPP FLOAT -->
 <a href="https://wa.me/5533988832199" target="_blank" class="wpp-btn">
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   Fazer Pedido
 </a>
 
-<!-- MODAL -->
-<div class="overlay" id="overlay" onclick="closeOv(event)">
-<div class="modal">
-  <div class="mbar"></div>
-  <div class="mtitle" id="m-title">Finalizar Pedido</div>
-  <div class="msub" id="m-sub"></div>
-  <div class="mres" id="m-res"></div>
-
-  <!-- ACRÉSCIMO -->
-  <div id="g-acr" style="display:none">
-    <div class="fsec">➕ Acréscimo (opcional)</div>
-    <div class="mopt-grid" id="op-acr"></div>
-    <div class="nenhuma" id="acr-n">Nenhum selecionado</div>
-  </div>
-
-  <!-- BEBIDAS ADICIONAL -->
-  <div id="g-beb" style="display:none">
-    <div class="fsec">🥤 Adicionar Bebida (opcional)</div>
-    <div class="beb-lista" id="lista-beb"></div>
-  </div>
-
-  <!-- OBS -->
-  <div class="fgrp" style="margin-top:14px;">
-    <label class="flabel">Observações (opcional)</label>
-    <textarea class="fctl" id="obs" rows="2" placeholder="Ex: sem cebola, bem assada..."></textarea>
-  </div>
-
-  <div class="fsec">📍 Dados para Entrega</div>
-  <div class="fgrp"><label class="flabel">Seu Nome</label><input type="text" class="fctl" id="f-nome" placeholder="Nome completo"></div>
-  <div class="fgrp"><label class="flabel">Endereço Completo</label><input type="text" class="fctl" id="f-end" placeholder="Rua, número, bairro"></div>
-  <div class="fgrp"><label class="flabel">Ponto de Referência (opcional)</label><input type="text" class="fctl" id="f-ref" placeholder="Ex: Próximo à praça"></div>
-  <div class="frow">
-    <div class="fgrp">
-      <label class="flabel">Pagamento</label>
-      <select class="fctl" id="f-pag">
-        <option value="">Selecione</option>
-        <option>Pix</option>
-        <option>Dinheiro</option>
-        <option>Cartão de Débito</option>
-        <option>Cartão de Crédito</option>
-      </select>
-    </div>
-    <div class="fgrp"><label class="flabel">Troco para</label><input type="text" class="fctl" id="f-troco" placeholder="Ex: R$ 50,00"></div>
-  </div>
-
-  <button class="btn-enviar" onclick="enviar()">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Enviar Pedido pelo WhatsApp
-  </button>
-  <button class="btn-cancel" onclick="fechar()">Cancelar</button>
-</div>
-</div>
-
 <script>
 const WPP = "5533988832199";
-let atual = {}, acrSel = '', bebSel = '';
-
-const BG_PIZZA  = "background:linear-gradient(135deg,#1E0900,#3D1500,#5A2200)";
+const BG_PIZZA  = "background:linear-gradient(135deg,#180800,#3D1500,#5A2200)";
 const BG_PORCAO = "background:linear-gradient(135deg,#2C1000,#5A2500)";
 
-const bebidas = [
-  {n:"Suco de Abacaxi",m:"500ml",p:"R$ 6,00"},
-  {n:"Suco de Maracujá",m:"500ml",p:"R$ 6,00"},
-  {n:"Suco de Manga",m:"500ml",p:"R$ 6,00"},
-  {n:"Suco de Goiaba",m:"500ml",p:"R$ 6,00"},
-  {n:"Suco de Limão",m:"500ml",p:"R$ 6,00"},
-  {n:"Suco de Laranja",m:"500ml",p:"R$ 8,00"},
-  {n:"Água Mineral",m:"500ml",p:"R$ 3,00"},
-  {n:"Red Bull",m:"Energético — Lata",p:"R$ 12,00"},
-  {n:"Refrigerante",m:"Lata 350ml",p:"R$ 5,00"},
-  {n:"Refrigerante",m:"Garrafa 1L",p:"R$ 10,00"},
-  {n:"Refrigerante",m:"Garrafa 2L",p:"R$ 16,00"},
-  {n:"Cerveja Itaipava",m:"Lata 350ml",p:"R$ 4,00"},
-  {n:"Cerveja Skol / Brahma Chopp",m:"Lata 350ml",p:"R$ 5,00"},
-  {n:"Cerveja Petra / Devassa / Imperio / Brahma Duplo Malte",m:"Lata 350ml",p:"R$ 5,00"},
-  {n:"Long Neck Budweiser / Eisbahn / Bohemia",m:"Long Neck",p:"R$ 8,00"},
-  {n:"Long Neck Corona / Stella / Heineken",m:"Long Neck",p:"R$ 10,00"},
-  {n:"Ice Smirnoff / 51 / Cabaré",m:"Ice",p:"R$ 10,00"},
-  {n:"Ice",m:"Ice",p:"R$ 7,00"},
-  {n:"Skol Beats",m:"Lata",p:"R$ 10,00"},
-  {n:"Whisky Old Parr",m:"Dose",p:"R$ 30,00"},
-  {n:"Whisky Black Label",m:"Dose",p:"R$ 30,00"},
-  {n:"Whisky Red Label",m:"Dose",p:"R$ 20,00"},
-  {n:"Whisky Cavalo Branco",m:"Dose",p:"R$ 15,00"},
-  {n:"Whisky Balantines",m:"Dose",p:"R$ 15,00"},
-  {n:"Whisky Passport",m:"Dose",p:"R$ 10,00"},
-  {n:"Montila Limon",m:"Dose",p:"R$ 10,00"},
-  {n:"Montila Cristal",m:"Dose",p:"R$ 10,00"},
-  {n:"Domecq",m:"Dose",p:"R$ 10,00"},
-  {n:"Domecq c/ Mel",m:"Dose",p:"R$ 10,00"},
-  {n:"Bacardi",m:"Dose",p:"R$ 10,00"},
-  {n:"Campari",m:"Dose",p:"R$ 10,00"},
-  {n:"Vinho",m:"Dose",p:"R$ 10,00"},
-  {n:"Vodka Orloff / Skyy / Smirnoff",m:"Dose",p:"R$ 8,00"},
-  {n:"Conhaque Dreher",m:"Dose",p:"R$ 5,00"},
-  {n:"Caipirinha",m:"Dose",p:"R$ 13,00"},
-  {n:"Coquetel de Frutas — Kiwi, Abacaxi, Uva, Morango e Maracujá",m:"Dose",p:"R$ 15,00"},
-];
-
 const especiais = [
-  {id:"e1",num:"1",nome:"Frango Catupiry",desc:"Frango, catupiry, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"01.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e2",num:"2",nome:"Jardineira",desc:"Frango, palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"02.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e3",num:"3",nome:"Portuguesa",desc:"Presunto, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"03.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e4",num:"4",nome:"Mexicana",desc:"Presunto, bacon, pimenta, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"04.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e5",num:"5",nome:"Marguerita",desc:"Mussarela, parmezão, tomate, orégano, azeitona, milho verde e ervilha",foto:"05.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
-  {id:"e6",num:"6",nome:"Salame",desc:"Salame, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"06.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e7",num:"7",nome:"Camarão",desc:"Camarão, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"07.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e8",num:"8",nome:"Bacalhau",desc:"Bacalhau, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"08.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e9",num:"9",nome:"Carne Seca",desc:"Carne seca, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"09.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e10",num:"10",nome:"Saltenha D/ Carne",desc:"Carne seca, uvas passas, pimenta, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"10.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e11",num:"11",nome:"A Moda D'Nana Calabresa",desc:"Calabresa, bacon, palmito, mussarela, tomate, orégano, milho verde e ervilha",foto:"11.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e12",num:"12",nome:"A Moda D'Nana Frango",desc:"Frango, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"12.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
-  {id:"e13",num:"13",nome:"A Moda D'Nana Presunto",desc:"Presunto, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"13.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 13,00",Pequena:"R$ 27,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"1",nome:"Frango Catupiry",desc:"Frango, catupiry, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"01.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {num:"2",nome:"Jardineira",desc:"Frango, palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"02.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {num:"3",nome:"Portuguesa",desc:"Presunto, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"03.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {num:"4",nome:"Mexicana",desc:"Presunto, bacon, pimenta, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"04.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {num:"5",nome:"Marguerita",desc:"Mussarela, parmezão, tomate, orégano, azeitona, milho verde e ervilha",foto:"05.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 12,00",Pequena:"R$ 27,00",Média:"R$ 39,00",Grande:"R$ 50,00",Família:"R$ 58,00"}},
+  {num:"6",nome:"Salame",desc:"Salame, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"06.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"7",nome:"Camarão",desc:"Camarão, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"07.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"8",nome:"Bacalhau",desc:"Bacalhau, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"08.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"9",nome:"Carne Seca",desc:"Carne seca, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"09.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"10",nome:"Saltenha D/ Carne",desc:"Carne seca, uvas passas, pimenta, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"10.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"11",nome:"A Moda D'Nana Calabresa",desc:"Calabresa, bacon, palmito, mussarela, tomate, orégano, milho verde e ervilha",foto:"11.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"12",nome:"A Moda D'Nana Frango",desc:"Frango, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"12.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 29,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
+  {num:"13",nome:"A Moda D'Nana Presunto",desc:"Presunto, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha",foto:"13.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 13,00",Pequena:"R$ 27,00",Média:"R$ 41,00",Grande:"R$ 51,00",Família:"R$ 61,00"}},
 ];
 
 const tradicionais = [
-  {id:"t14",num:"14",nome:"Frango",desc:"Frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"14.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t15",num:"15",nome:"Calabresa",desc:"Calabresa, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"15.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t16",num:"16",nome:"Presunto",desc:"Presunto, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"16.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t17",num:"17",nome:"Atum",desc:"Atum, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"17.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t18",num:"18",nome:"Bacon",desc:"Bacon, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"18.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t19",num:"19",nome:"Mussarela",desc:"Mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"19.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t20",num:"20",nome:"Palmito",desc:"Palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"20.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t21",num:"21",nome:"Milho Verde",desc:"Milho verde, mussarela, tomate, orégano, azeitona e ervilha",foto:"21.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t22",num:"22",nome:"3 Queijos",desc:"Catupiry, cheddar, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"22.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
-  {id:"t23",num:"23",nome:"Moda da Casa",desc:"Calabresa, presunto, atum, frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"23.jpg",bg:BG_PIZZA,ico:"🍕",tipo:"pizza",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"14",nome:"Frango",desc:"Frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"14.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"15",nome:"Calabresa",desc:"Calabresa, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"15.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"16",nome:"Presunto",desc:"Presunto, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"16.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"17",nome:"Atum",desc:"Atum, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"17.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"18",nome:"Bacon",desc:"Bacon, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"18.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"19",nome:"Mussarela",desc:"Mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"19.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"20",nome:"Palmito",desc:"Palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"20.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"21",nome:"Milho Verde",desc:"Milho verde, mussarela, tomate, orégano, azeitona e ervilha",foto:"21.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"22",nome:"3 Queijos",desc:"Catupiry, cheddar, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"22.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
+  {num:"23",nome:"Moda da Casa",desc:"Calabresa, presunto, atum, frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha",foto:"23.jpg",bg:BG_PIZZA,ico:"🍕",precos:{Broto:"R$ 11,00",Pequena:"R$ 25,00",Média:"R$ 37,00",Grande:"R$ 48,00",Família:"R$ 56,00"}},
 ];
 
 const porcoes = [
-  {id:"p1",nome:"Carne de Sol com Aipim",desc:"ou Batata Frita",foto:"p01.jpg",bg:BG_PORCAO,ico:"🥩",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
-  {id:"p2",nome:"Calabresa Defumada c/Queijo",desc:"ou Batata Frita",foto:"p02.jpg",bg:BG_PORCAO,ico:"🌭",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
-  {id:"p3",nome:"Frango a Passarinha",desc:"com Batata Frita",foto:"p03.jpg",bg:BG_PORCAO,ico:"🍗",tipo:"porcao",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
-  {id:"p4",nome:"Batata Frita",desc:"Crocante e sequinha",foto:"p04.jpg",bg:BG_PORCAO,ico:"🍟",tipo:"porcao",precos:{P:"R$ 20,00",M:"R$ 25,00",G:"R$ 30,00"}},
-  {id:"p5",nome:"Tábua de Frios",desc:"Queijo, Presunto e Azeitona",foto:"p05.jpg",bg:BG_PORCAO,ico:"🧀",tipo:"porcao",precos:{P:"R$ 30,00",M:"R$ 40,00"}},
+  {nome:"Carne de Sol com Aipim",desc:"ou Batata Frita",foto:"p01.jpg",bg:BG_PORCAO,ico:"🥩",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
+  {nome:"Calabresa Defumada c/Queijo",desc:"ou Batata Frita",foto:"p02.jpg",bg:BG_PORCAO,ico:"🌭",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
+  {nome:"Frango a Passarinha",desc:"com Batata Frita",foto:"p03.jpg",bg:BG_PORCAO,ico:"🍗",precos:{P:"R$ 40,00",M:"R$ 50,00",G:"R$ 60,00"}},
+  {nome:"Batata Frita",desc:"Crocante e sequinha",foto:"p04.jpg",bg:BG_PORCAO,ico:"🍟",precos:{P:"R$ 20,00",M:"R$ 25,00",G:"R$ 30,00"}},
+  {nome:"Tábua de Frios",desc:"Queijo, Presunto e Azeitona",foto:"p05.jpg",bg:BG_PORCAO,ico:"🧀",precos:{P:"R$ 30,00",M:"R$ 40,00"}},
 ];
 
 function makeImg(item) {
-  if(item.foto) return `<img src="${item.foto}" class="ucard-img" alt="${item.nome}">`;
-  return `<div class="ucard-placeholder" style="${item.bg}"><span>${item.ico}</span><small>Foto em breve</small></div>`;
+  if(item.foto) return `<img src="${item.foto}" class="ucard-img" alt="${item.nome}" loading="lazy">`;
+  return `<div class="ucard-placeholder" style="${item.bg}"><span>${item.ico}</span></div>`;
 }
 
 function cardPizza(p) {
-  const opts = Object.entries(p.precos).map(([t,v]) =>
-    `<div class="opt-btn" onclick="selOpt(this,'${p.id}')">
-      <span class="on">${t}</span><span class="ov">${v}</span>
-    </div>`).join('');
+  const precos = Object.entries(p.precos).map(([t,v]) =>
+    `<div class="preco-tag">${t} <span>${v}</span></div>`).join('');
   return `
-  <div class="ucard" id="card-${p.id}">
-    <div class="ucard-wrap">${makeImg(p)}<div class="ucard-badge">Nº ${p.num}</div></div>
+  <div class="ucard">
+    <div class="ucard-img-wrap">${makeImg(p)}<div class="ucard-num">Nº ${p.num}</div></div>
     <div class="ucard-body">
       <div class="ucard-name">${p.nome}</div>
       <div class="ucard-desc">${p.desc}</div>
-      <div class="opts-label">Selecione o tamanho:</div>
-      <div class="opts">${opts}</div>
-      <button class="btn-p" id="btn-${p.id}" onclick='abrirPizza(${JSON.stringify(p).replace(/'/g,"&#39;")})'>🛒 Pedir Agora</button>
+      <div class="ucard-precos">${precos}</div>
     </div>
   </div>`;
 }
 
 function cardPorcao(p) {
-  const opts = Object.entries(p.precos).map(([t,v]) =>
-    `<div class="opt-btn" onclick="selOpt(this,'${p.id}')">
-      <span class="on">Porção ${t}</span><span class="ov">${v}</span>
-    </div>`).join('');
+  const precos = Object.entries(p.precos).map(([t,v]) =>
+    `<div class="preco-tag">Porção ${t} <span>${v}</span></div>`).join('');
   return `
-  <div class="ucard" id="card-${p.id}">
-    <div class="ucard-wrap">${makeImg(p)}</div>
+  <div class="ucard">
+    <div class="ucard-img-wrap">${makeImg(p)}</div>
     <div class="ucard-body">
       <div class="ucard-name">${p.nome}</div>
       <div class="ucard-desc">${p.desc}</div>
-      <div class="opts-label">Selecione o tamanho:</div>
-      <div class="opts">${opts}</div>
-      <button class="btn-p" id="btn-${p.id}" onclick='abrirPorcao(${JSON.stringify(p).replace(/'/g,"&#39;")})'>🛒 Pedir</button>
+      <div class="ucard-precos">${precos}</div>
     </div>
   </div>`;
-}
-
-function selOpt(btn, cardId) {
-  btn.closest('.opts').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('ativo'));
-  btn.classList.add('ativo');
-  document.getElementById('btn-'+cardId).classList.add('show');
 }
 
 function renderGrid(lista, id, fn) {
   document.getElementById(id).innerHTML = lista.map(fn).join('');
 }
 
-function renderBebidas() {
-  const lista = document.getElementById('lista-beb');
-  const nenhuma = `<div class="beb-opt sel" id="beb-nenhuma" onclick="selBeb(this,'')">
-    <div><div class="bn">Nenhuma bebida</div><div class="bm">Não quero adicionar</div></div>
-    <div class="bp">—</div>
-  </div>`;
-  const opts = bebidas.map((b,i) =>
-    `<div class="beb-opt" id="beb-${i}" onclick="selBeb(this,'${b.n} — ${b.m} (${b.p})')">
-      <div><div class="bn">${b.n}</div><div class="bm">${b.m}</div></div>
-      <div class="bp">${b.p}</div>
-    </div>`).join('');
-  lista.innerHTML = nenhuma + opts;
-}
-
-function selBeb(el, val) {
-  document.querySelectorAll('#lista-beb .beb-opt').forEach(b => b.classList.remove('sel'));
-  el.classList.add('sel');
-  bebSel = val;
-}
-
-function abrirPizza(p) {
-  const card = document.getElementById('card-'+p.id);
-  const ativo = card.querySelector('.opt-btn.ativo');
-  const tam = ativo.querySelector('.on').textContent + ' — ' + ativo.querySelector('.ov').textContent;
-  atual = {tipo:'pizza', item:p, tamanho:tam};
-  acrSel = ''; bebSel = '';
-
-  document.getElementById('m-title').textContent = '🍕 Finalizar Pedido';
-  document.getElementById('m-sub').textContent = p.nome;
-  document.getElementById('m-res').innerHTML = `
-    <div class="mres-nome">🍕 ${p.nome}</div>
-    <div class="mres-det">📐 <strong>${tam}</strong><br><span style="font-size:10px;color:var(--gray)">${p.desc}</span></div>`;
-
-  document.getElementById('g-acr').style.display = 'block';
-  document.getElementById('op-acr').innerHTML = [
-    {n:"Catupiry",p:"R$ 4,00"},{n:"Cheddar",p:"R$ 5,00"},{n:"Bacon",p:"R$ 5,00"},
-    {n:"Palmito",p:"R$ 4,00"},{n:"Azeitonas",p:"R$ 4,00"},
-    {n:"Ovos Cozido",p:"R$ 3,00"},{n:"Cebola e Pimentão",p:"R$ 3,00"},
-  ].map(a =>
-    `<div class="mopt-btn" onclick="selAcr(this,'${a.n} (+${a.p})')">
-      <div class="mn">${a.n}</div><div class="mv">+${a.p}</div>
-    </div>`).join('');
-  document.getElementById('acr-n').style.display = 'block';
-
-  document.getElementById('g-beb').style.display = 'block';
-  renderBebidas();
-  abrirModal();
-}
-
-function abrirPorcao(p) {
-  const card = document.getElementById('card-'+p.id);
-  const ativo = card.querySelector('.opt-btn.ativo');
-  const tam = ativo.querySelector('.on').textContent + ' — ' + ativo.querySelector('.ov').textContent;
-  atual = {tipo:'porcao', item:p, tamanho:tam};
-  acrSel = ''; bebSel = '';
-
-  document.getElementById('m-title').textContent = '🍟 Finalizar Pedido';
-  document.getElementById('m-sub').textContent = p.nome;
-  document.getElementById('m-res').innerHTML = `
-    <div class="mres-nome">${p.ico} ${p.nome}</div>
-    <div class="mres-det">📐 <strong>${tam}</strong></div>`;
-
-  document.getElementById('g-acr').style.display = 'none';
-  document.getElementById('g-beb').style.display = 'block';
-  renderBebidas();
-  abrirModal();
-}
-
-function selAcr(el, val) {
-  if(el.classList.contains('sel')){el.classList.remove('sel');acrSel='';document.getElementById('acr-n').style.display='block';}
-  else{document.querySelectorAll('#op-acr .mopt-btn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');acrSel=val;document.getElementById('acr-n').style.display='none';}
-}
-
-function abrirModal() {
-  ['obs','f-nome','f-end','f-ref','f-troco'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  document.getElementById('f-pag').value='';
-  document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function fechar(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
-function closeOv(e){if(e.target===document.getElementById('overlay'))fechar();}
-
 function enviar() {
-  const nome=document.getElementById('f-nome').value.trim();
-  const end=document.getElementById('f-end').value.trim();
-  const pag=document.getElementById('f-pag').value;
-  if(!nome){alert('Informe seu nome.');return;}
-  if(!end){alert('Informe o endereço.');return;}
-  if(!pag){alert('Selecione a forma de pagamento.');return;}
+  const nome    = document.getElementById('f-nome').value.trim();
+  const sabor   = document.getElementById('f-sabor').value.trim();
+  const tamanho = document.getElementById('f-tamanho').value.trim();
+  const end     = document.getElementById('f-end').value.trim();
+  const pag     = document.getElementById('f-pag').value;
 
-  let L=["🍕 *NOVO PEDIDO — Pizzas D'Nana*",""];
+  if(!nome)   {alert('Informe seu nome.');return;}
+  if(!sabor)  {alert('Informe o sabor da pizza.');return;}
+  if(!tamanho){alert('Informe o tamanho.');return;}
+  if(!end)    {alert('Informe o endereço.');return;}
+  if(!pag)    {alert('Selecione a forma de pagamento.');return;}
 
-  if(atual.tipo==='pizza'){
-    L.push(`🍕 *Sabor:* ${atual.item.nome}`);
-    L.push(`📐 *Tamanho:* ${atual.tamanho}`);
-    if(acrSel) L.push(`➕ *Acréscimo:* ${acrSel}`);
-  } else if(atual.tipo==='porcao'){
-    L.push(`🍟 *Porção:* ${atual.item.nome}`);
-    L.push(`📐 *Tamanho:* ${atual.tamanho}`);
-  } else {
-    L.push(`🛒 *Item:* ${atual.item.nome}`);
-    L.push(`💰 *Valor:* ${atual.item.preco}`);
-  }
+  const bebida  = document.getElementById('f-bebida').value.trim();
+  const ref     = document.getElementById('f-ref').value.trim();
+  const troco   = document.getElementById('f-troco').value.trim();
+  const obs     = document.getElementById('f-obs').value.trim();
 
-  if(bebSel) L.push(`🥤 *Bebida:* ${bebSel}`);
-
-  const obs=document.getElementById('obs').value.trim();
-  if(obs) L.push(`📝 *Obs:* ${obs}`);
-  L.push("","📍 *ENTREGA*");
+  let L = ["🍕 *NOVO PEDIDO — Pizzas D'Nana*", ""];
   L.push(`👤 *Nome:* ${nome}`);
+  L.push(`🍕 *Sabor:* ${sabor}`);
+  L.push(`📐 *Tamanho:* ${tamanho}`);
+  if(bebida) L.push(`🥤 *Bebida:* ${bebida}`);
+  L.push("", "📍 *ENTREGA*");
   L.push(`🏠 *Endereço:* ${end}`);
-  const ref=document.getElementById('f-ref').value.trim();
-  if(ref) L.push(`📌 *Referência:* ${ref}`);
+  if(ref)    L.push(`📌 *Referência:* ${ref}`);
   L.push(`💳 *Pagamento:* ${pag}`);
-  const troco=document.getElementById('f-troco').value.trim();
-  if(troco) L.push(`💵 *Troco para:* ${troco}`);
+  if(troco)  L.push(`💵 *Troco para:* ${troco}`);
+  if(obs)    L.push(`📝 *Obs:* ${obs}`);
 
   window.open(`https://wa.me/${WPP}?text=${encodeURIComponent(L.join('\n'))}`,'_blank');
-  fechar();
 }
 
-renderGrid(especiais, 'g-esp', cardPizza);
-renderGrid(tradicionais, 'g-trad', cardPizza);
-renderGrid(porcoes, 'g-porcoes', cardPorcao);
+renderGrid(especiais,   'g-esp',    cardPizza);
+renderGrid(tradicionais,'g-trad',   cardPizza);
+renderGrid(porcoes,     'g-porcoes',cardPorcao);
 </script>
 </body>
 </html>
