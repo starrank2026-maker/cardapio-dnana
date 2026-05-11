@@ -20,18 +20,13 @@
   --white:#FFFFFF;
   --shadow:0 6px 24px rgba(193,18,31,0.08);
   --shadow-hover:0 12px 32px rgba(193,18,31,0.14);
-  --gold:#C1121F;
-  --gold2:#C1121F;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
 
 /* HERO */
-.hero{
-  background:linear-gradient(135deg,#FFF5F3,#FFE8E4);
-  min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 80px;position:relative;overflow:hidden;
-}
+.hero{background:linear-gradient(135deg,#FFF5F3,#FFE8E4);min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 80px;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 110%,rgba(193,18,31,0.10) 0%,transparent 60%);}
 .hero-circle{position:absolute;width:600px;height:600px;border-radius:50%;border:1px solid rgba(193,18,31,0.08);top:50%;left:50%;transform:translate(-50%,-50%);}
 .hero-circle2{position:absolute;width:900px;height:900px;border-radius:50%;border:1px solid rgba(193,18,31,0.04);top:50%;left:50%;transform:translate(-50%,-50%);}
@@ -73,7 +68,7 @@ section{padding:56px 0;}
 .ucard-img{width:100%;height:180px;object-fit:cover;display:block;transition:transform 0.4s ease;}
 .ucard:hover .ucard-img{transform:scale(1.06);}
 .ucard-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;}
-.ucard-placeholder span{font-size:48px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));}
+.ucard-placeholder span{font-size:48px;}
 .ucard-num{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:0.06em;box-shadow:0 2px 8px rgba(193,18,31,0.35);}
 .ucard-body{padding:16px;flex:1;display:flex;flex-direction:column;}
 .ucard-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px;}
@@ -117,6 +112,15 @@ section{padding:56px 0;}
 select.fctl option{background:#fff;color:#333;}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .form-divider{height:1px;background:var(--border);margin:8px 0 20px;}
+
+/* PIZZA BOXES */
+.pizza-box{background:#FFF7F6;border:1.5px solid #F2D7D3;border-radius:16px;padding:16px;margin-bottom:12px;position:relative;}
+.pizza-box-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.pizza-box-label{font-size:12px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:0.08em;}
+.pizza-remove{background:none;border:none;color:#CCC;cursor:pointer;font-size:18px;line-height:1;transition:color 0.18s;}
+.pizza-remove:hover{color:var(--red);}
+.btn-add-pizza{width:100%;background:#FFF0EE;border:1.5px dashed #EDD3CF;border-radius:14px;padding:13px;font-size:13px;font-weight:700;color:var(--red);cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:16px;transition:all 0.18s;}
+.btn-add-pizza:hover{background:#FFE5E2;border-color:var(--red);}
 
 /* ACRÉSCIMO BOTÕES */
 .acr-grid{display:flex;flex-wrap:wrap;gap:8px;}
@@ -266,20 +270,4 @@ footer{background:#FFFFFF;border-top:1px solid var(--border);padding:48px 20px;t
         <div class="beb-item"><div class="beb-info"><div class="bn">Vinho</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
         <div class="beb-item"><div class="beb-info"><div class="bn">Vodka Orloff / Skyy / Smirnoff</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 8,00</div></div>
         <div class="beb-item"><div class="beb-info"><div class="bn">Conhaque Dreher</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 5,00</div></div>
-        <div class="beb-item"><div class="beb-info"><div class="bn">Caipirinha</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 13,00</div></div>
-        <div class="beb-item"><div class="beb-info"><div class="bn">Coquetel de Frutas</div><div class="bm">Kiwi, Abacaxi, Uva, Morango e Maracujá</div></div><div class="beb-preco">R$ 15,00</div></div>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<!-- FORMULÁRIO -->
-<div class="form-section" id="pedido">
-  <div class="form-wrap">
-    <div class="form-eyebrow">Delivery</div>
-    <div class="form-title">Fazer <em>Pedido</em></div>
-    <div class="form-sub">Preencha os campos e envie direto pelo WhatsApp 🍕</div>
-
-    <div class="fgrp">
-      <label class="flabel">👤 Seu Nome</label>
-      <input type="text" class="fctl" i
+        <div class="beb-item"><div class="beb-info"><
