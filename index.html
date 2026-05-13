@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html aang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -257,4 +257,312 @@ footer{background:#FFFFFF;border-top:1px solid var(--border);padding:48px 20px;t
         <div class="beb-item"><div class="beb-info"><div class="bn">Vinho</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 10,00</div></div>
         <div class="beb-item"><div class="beb-info"><div class="bn">Vodka Orloff / Skyy / Smirnoff</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 8,00</div></div>
         <div class="beb-item"><div class="beb-info"><div class="bn">Conhaque Dreher</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 5,00</div></div>
-        <div class="beb-item"><div class="beb-info"><div class="bn">Caipirinha</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 13,00</div></div
+        <div class="beb-item"><div class="beb-info"><div class="bn">Caipirinha</div><div class="bm">Dose</div></div><div class="beb-preco">R$ 13,00</div></div>
+        <div class="beb-item"><div class="beb-info"><div class="bn">Coquetel de Frutas</div><div class="bm">Kiwi, Abacaxi, Uva, Morango e Maracujá</div></div><div class="beb-preco">R$ 15,00</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FORMULÁRIO -->
+<div class="form-section" id="pedido">
+  <div class="form-wrap">
+    <div class="form-eyebrow">Delivery</div>
+    <div class="form-title">Fazer <em>Pedido</em></div>
+    <div class="form-sub">Preencha os campos e envie direto pelo WhatsApp 🍕</div>
+
+    <div class="fgrp">
+      <label class="flabel">👤 Seu Nome</label>
+      <input class="fctl" id="f-nome" type="text" placeholder="Digite seu nome completo">
+    </div>
+
+    <div id="pizzas-wrap"></div>
+    <button class="btn-add-pizza" onclick="addPizza()">+ Adicionar outra pizza</button>
+
+    <div class="fgrp">
+      <label class="flabel">🍟 Porção (opcional)</label>
+      <select class="fctl" id="f-porcao">
+        <option value="">Nenhuma</option>
+        <option>Carne de Sol com Aipim</option>
+        <option>Calabresa Defumada c/Queijo</option>
+        <option>Frango a Passarinha</option>
+        <option>Batata Frita</option>
+        <option>Tábua de Frios</option>
+      </select>
+    </div>
+
+    <div class="fgrp">
+      <label class="flabel">🥤 Bebida (opcional)</label>
+      <input class="fctl" id="f-bebida" type="text" placeholder="Ex: Refrigerante 2L, Heineken...">
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="fgrp">
+      <label class="flabel">🏠 Endereço de Entrega</label>
+      <input class="fctl" id="f-end" type="text" placeholder="Rua, número, bairro">
+    </div>
+
+    <div class="fgrp">
+      <label class="flabel">📌 Ponto de Referência (opcional)</label>
+      <input class="fctl" id="f-ref" type="text" placeholder="Ex: Próximo ao mercado X">
+    </div>
+
+    <div class="fgrp">
+      <label class="flabel">💳 Forma de Pagamento</label>
+      <select class="fctl" id="f-pag">
+        <option value="">Selecione</option>
+        <option>Pix</option>
+        <option>Dinheiro</option>
+        <option>Cartão de Débito</option>
+        <option>Cartão de Crédito</option>
+      </select>
+    </div>
+
+    <div class="fgrp">
+      <label class="flabel">💵 Troco para (opcional)</label>
+      <input class="fctl" id="f-troco" type="text" placeholder="Ex: R$ 50,00 (só se for dinheiro)">
+    </div>
+
+    <div class="fgrp">
+      <label class="flabel">📝 Observações (opcional)</label>
+      <textarea class="fctl" id="f-obs" rows="3" placeholder="Alguma observação especial?"></textarea>
+    </div>
+
+    <button class="btn-enviar" onclick="enviar()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+      Enviar Pedido pelo WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="flogo">Pizzas <em>D'Nana</em></div>
+  <div class="ftag">Mais sabor, mais qualidade, mais momentos para compartilhar</div>
+  <div class="fdiv"></div>
+  <span class="ftel">☎ (33) 98883-2199</span>
+  <div class="faddr">📍 Praça da Prefeitura, Mata Verde - MG</div>
+  <div class="fig">📸 @pizzasdnana</div>
+  <div class="filust">📸 As imagens são meramente ilustrativas e podem variar em relação ao produto final.</div>
+  <div class="fcopy">© 2025 Pizzas D'Nana — Todos os direitos reservados</div>
+</footer>
+
+<a class="wpp-btn" href="https://wa.me/5533988832199" target="_blank">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+  Fazer Pedido
+</a>
+
+<script>
+const WPP = '5533988832199';
+let pizzaCount = 0;
+
+function addPizza() {
+  pizzaCount++;
+  const id = pizzaCount;
+  const box = document.createElement('div');
+  box.className = 'pizza-box';
+  box.id = 'pizza-box-' + id;
+  box.innerHTML =
+    '<div class="pizza-box-header">' +
+      '<span class="pizza-box-label">🍕 Pizza ' + id + '</span>' +
+      (id > 1 ? '<button class="pizza-remove" onclick="removePizza(' + id + ')">✕</button>' : '') +
+    '</div>' +
+    '<div class="fgrp">' +
+      '<label class="flabel">Sabor</label>' +
+      '<input class="fctl" id="sabor-' + id + '" type="text" placeholder="Ex: Frango Catupiry  |  meia Calabresa / meia Presunto">' +
+      '<div class="fhint">💡 Pode digitar um sabor ou dois (meia a meia)</div>' +
+    '</div>' +
+    '<div class="fgrp">' +
+      '<label class="flabel">Tamanho</label>' +
+      '<select class="fctl" id="tamanho-' + id + '">' +
+        '<option value="">Selecione o tamanho</option>' +
+        '<option>Broto (4 pedaços)</option>' +
+        '<option>Pequena (4 pedaços)</option>' +
+        '<option>Média (6 pedaços)</option>' +
+        '<option>Grande (8 pedaços)</option>' +
+        '<option>Família (10 pedaços)</option>' +
+      '</select>' +
+    '</div>' +
+    '<div class="fgrp">' +
+      '<label class="flabel">Acréscimo (opcional)</label>' +
+      '<div class="acr-grid" id="acr-' + id + '">' +
+        '<button type="button" class="acr-btn nenhum sel" data-acr="Nenhum" onclick="selAcr(' + id + ',this)">Nenhum</button>' +
+        '<button type="button" class="acr-btn" data-acr="Catupiry (+R$ 4,00)" onclick="selAcr(' + id + ',this)">🧀 Catupiry</button>' +
+        '<button type="button" class="acr-btn" data-acr="Cheddar (+R$ 5,00)" onclick="selAcr(' + id + ',this)">🧀 Cheddar</button>' +
+        '<button type="button" class="acr-btn" data-acr="Bacon (+R$ 5,00)" onclick="selAcr(' + id + ',this)">🥓 Bacon</button>' +
+        '<button type="button" class="acr-btn" data-acr="Palmito (+R$ 4,00)" onclick="selAcr(' + id + ',this)">🌿 Palmito</button>' +
+        '<button type="button" class="acr-btn" data-acr="Ovos Cozido (+R$ 3,00)" onclick="selAcr(' + id + ',this)">🥚 Ovos Cozido</button>' +
+        '<button type="button" class="acr-btn" data-acr="Cebola e Pimentão (+R$ 3,00)" onclick="selAcr(' + id + ',this)">🌶️ Cebola e Pimentão</button>' +
+      '</div>' +
+    '</div>';
+  document.getElementById('pizzas-wrap').appendChild(box);
+}
+
+function removePizza(id) {
+  document.getElementById('pizza-box-' + id).remove();
+}
+
+function selAcr(id, btn) {
+  document.querySelectorAll('#acr-' + id + ' .acr-btn').forEach(function(b){ b.classList.remove('sel'); });
+  btn.classList.add('sel');
+}
+
+function getAcr(id) {
+  var sel = document.querySelector('#acr-' + id + ' .acr-btn.sel');
+  return sel ? sel.dataset.acr : 'Nenhum';
+}
+
+function enviar() {
+  var nome   = document.getElementById('f-nome').value.trim();
+  var end    = document.getElementById('f-end').value.trim();
+  var pag    = document.getElementById('f-pag').value;
+  var porcao = document.getElementById('f-porcao').value;
+  var bebida = document.getElementById('f-bebida').value.trim();
+  var ref    = document.getElementById('f-ref').value.trim();
+  var troco  = document.getElementById('f-troco').value.trim();
+  var obs    = document.getElementById('f-obs').value.trim();
+
+  if (!nome) { alert('Por favor, informe seu nome.'); return; }
+  if (!end)  { alert('Por favor, informe o endereço de entrega.'); return; }
+  if (!pag)  { alert('Selecione a forma de pagamento.'); return; }
+
+  var boxList = document.querySelectorAll('.pizza-box');
+  var pizzasMontadas = [];
+  var ok = true;
+
+  boxList.forEach(function(box, idx) {
+    var num     = idx + 1;
+    var idBox   = box.id.replace('pizza-box-', '');
+    var sabor   = (document.getElementById('sabor-'   + idBox) || {}).value || '';
+    var tamanho = (document.getElementById('tamanho-' + idBox) || {}).value || '';
+    sabor = sabor.trim();
+    if (!sabor || !tamanho) {
+      alert('Preencha o sabor e o tamanho da Pizza ' + num + '.');
+      ok = false; return;
+    }
+    pizzasMontadas.push({ num: num, sabor: sabor, tamanho: tamanho, acr: getAcr(idBox) });
+  });
+
+  if (!ok || pizzasMontadas.length === 0) return;
+
+  var L = [];
+  L.push("🍕 *NOVO PEDIDO — Pizzas D'Nana*");
+  L.push('');
+  L.push('👤 *Nome:* ' + nome);
+  L.push('');
+  L.push('🍕 *PIZZAS*');
+
+  pizzasMontadas.forEach(function(p) {
+    L.push('━━━━━━━━━━━━━━━');
+    L.push('🍕 *Pizza ' + p.num + '*');
+    L.push('   • Sabor: *' + p.sabor + '*');
+    L.push('   • Tamanho: ' + p.tamanho);
+    if (p.acr && p.acr !== 'Nenhum') {
+      L.push('   • Acréscimo: ' + p.acr);
+    }
+  });
+  L.push('━━━━━━━━━━━━━━━');
+  L.push('');
+
+  if (porcao) L.push('🍟 *Porção:* ' + porcao);
+  if (bebida) L.push('🥤 *Bebida:* ' + bebida);
+  if (porcao || bebida) L.push('');
+
+  L.push('📍 *ENTREGA*');
+  L.push('🏠 *Endereço:* ' + end);
+  if (ref)   L.push('📌 *Referência:* ' + ref);
+  L.push('💳 *Pagamento:* ' + pag);
+  if (troco) L.push('💵 *Troco para:* ' + troco);
+  if (obs)   L.push('📝 *Obs:* ' + obs);
+
+  window.open('https://wa.me/' + WPP + '?text=' + encodeURIComponent(L.join('\n')), '_blank');
+}
+
+// —— DADOS ——
+var precosEsp1  = {B:"R$ 12,00", P:"R$ 27,00", M:"R$ 39,00", G:"R$ 50,00", F:"R$ 58,00"};
+var precosEsp2  = {B:"R$ 13,00", P:"R$ 29,00", M:"R$ 41,00", G:"R$ 51,00", F:"R$ 61,00"};
+var precosTrad  = {B:"R$ 11,00", P:"R$ 25,00", M:"R$ 37,00", G:"R$ 48,00", F:"R$ 56,00"};
+
+var especiais = [
+  {num:"1",  nome:"Frango Catupiry",          foto:"01.jpg", ico:"🍕", precos:precosEsp1, desc:"Frango, catupiry, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"2",  nome:"Jardineira",               foto:"02.jpg", ico:"🍕", precos:precosEsp1, desc:"Frango, palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"3",  nome:"Portuguesa",              foto:"03.jpg", ico:"🍕", precos:precosEsp1, desc:"Presunto, cebola, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"4",  nome:"Mexicana",                foto:"04.jpg", ico:"🍕", precos:precosEsp1, desc:"Presunto, bacon, pimenta, cebola, mussarela, tomate, orégano, azeitona"},
+  {num:"5",  nome:"Marguerita",              foto:"05.jpg", ico:"🍕", precos:precosEsp1, desc:"Mussarela, parmezão, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"6",  nome:"Salame",                  foto:"06.jpg", ico:"🍕", precos:precosEsp2, desc:"Salame, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"7",  nome:"Camarão",                foto:"07.jpg", ico:"🍕", precos:precosEsp2, desc:"Camarão, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"8",  nome:"Bacalhau",               foto:"08.jpg", ico:"🍕", precos:precosEsp2, desc:"Bacalhau, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"9",  nome:"Carne Seca",             foto:"09.jpg", ico:"🍕", precos:precosEsp2, desc:"Carne seca, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"10", nome:"Saltenha D/ Carne",      foto:"10.jpg", ico:"🍕", precos:precosEsp2, desc:"Carne seca, uvas passas, pimenta, mussarela, tomate, orégano, azeitona"},
+  {num:"11", nome:"A Moda D'Nana Calabresa",foto:"11.jpg", ico:"🍕", precos:precosEsp2, desc:"Calabresa, bacon, palmito, mussarela, tomate, orégano, milho verde e ervilha"},
+  {num:"12", nome:"A Moda D'Nana Frango",   foto:"12.jpg", ico:"🍕", precos:precosEsp2, desc:"Frango, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha"},
+  {num:"13", nome:"A Moda D'Nana Presunto", foto:"13.jpg", ico:"🍕", precos:precosEsp2, desc:"Presunto, bacon, palmito, mussarela, tomate, orégano, milho verde, azeitona e ervilha"},
+];
+
+var tradicionais = [
+  {num:"14", nome:"Frango",      foto:"14.jpg", ico:"🍕", precos:precosTrad, desc:"Frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"15", nome:"Calabresa",   foto:"15.jpg", ico:"🍕", precos:precosTrad, desc:"Calabresa, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"16", nome:"Presunto",    foto:"16.jpg", ico:"🍕", precos:precosTrad, desc:"Presunto, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"17", nome:"Atum",        foto:"17.jpg", ico:"🍕", precos:precosTrad, desc:"Atum, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"18", nome:"Bacon",       foto:"18.jpg", ico:"🍕", precos:precosTrad, desc:"Bacon, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"19", nome:"Mussarela",   foto:"19.jpg", ico:"🍕", precos:precosTrad, desc:"Mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"20", nome:"Palmito",     foto:"20.jpg", ico:"🍕", precos:precosTrad, desc:"Palmito, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"21", nome:"Milho Verde", foto:"21.jpg", ico:"🍕", precos:precosTrad, desc:"Milho verde, mussarela, tomate, orégano, azeitona e ervilha"},
+  {num:"22", nome:"3 Queijos",   foto:"22.jpg", ico:"🍕", precos:precosTrad, desc:"Catupiry, cheddar, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+  {num:"23", nome:"Moda da Casa",foto:"23.jpg", ico:"🍕", precos:precosTrad, desc:"Calabresa, presunto, atum, frango, mussarela, tomate, orégano, azeitona, milho verde e ervilha"},
+];
+
+var porcoes = [
+  {nome:"Carne de Sol com Aipim",      foto:"p01.jpg", ico:"🥩", desc:"ou Batata Frita",             precos:{P:"R$ 40,00", M:"R$ 50,00", G:"R$ 60,00"}},
+  {nome:"Calabresa Defumada c/Queijo", foto:"p02.jpg", ico:"🌭", desc:"ou Batata Frita",             precos:{P:"R$ 40,00", M:"R$ 50,00", G:"R$ 60,00"}},
+  {nome:"Frango a Passarinha",         foto:"p03.jpg", ico:"🍗", desc:"com Batata Frita",            precos:{P:"R$ 40,00", M:"R$ 50,00", G:"R$ 60,00"}},
+  {nome:"Batata Frita",                foto:"p04.jpg", ico:"🍟", desc:"Crocante e sequinha",         precos:{P:"R$ 20,00", M:"R$ 25,00", G:"R$ 30,00"}},
+  {nome:"Tábua de Frios",              foto:"p05.jpg", ico:"🧀", desc:"Queijo, Presunto e Azeitona", precos:{P:"R$ 30,00", M:"R$ 40,00"}},
+];
+
+function makeImg(item) {
+  return '<img src="' + item.foto + '" class="ucard-img" alt="' + item.nome + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=ucard-placeholder><span>' + (item.ico||'🍕') + '</span></div>\'">';
+}
+
+function priceTable(precos, isPorcao) {
+  var labels = {B:'Broto', P:'Pequena', M:'Média', G:'Grande', F:'Família'};
+  var rows = Object.entries(precos)
+    .filter(function(kv){ return kv[1]; })
+    .map(function(kv){
+      return '<div class="price-row"><span class="price-size">' + (labels[kv[0]]||kv[0]) + '</span><span class="price-val">' + kv[1] + '</span></div>';
+    }).join('');
+  return '<div class="price-table">' + rows + '</div>';
+}
+
+function cardPizza(p) {
+  return '<div class="ucard">' +
+    '<div class="ucard-img-wrap">' + makeImg(p) + '<div class="ucard-num">Nº ' + p.num + '</div></div>' +
+    '<div class="ucard-body">' +
+      '<div class="ucard-name">' + p.nome + '</div>' +
+      '<div class="ucard-desc">' + p.desc + '</div>' +
+      priceTable(p.precos, false) +
+    '</div></div>';
+}
+
+function cardPorcao(p) {
+  return '<div class="ucard">' +
+    '<div class="ucard-img-wrap">' + makeImg(p) + '</div>' +
+    '<div class="ucard-body">' +
+      '<div class="ucard-name">' + p.nome + '</div>' +
+      '<div class="ucard-desc">' + p.desc + '</div>' +
+      priceTable(p.precos, true) +
+    '</div></div>';
+}
+
+function renderGrid(lista, id, fn) {
+  document.getElementById(id).innerHTML = lista.map(fn).join('');
+}
+
+renderGrid(especiais,    'g-esp',     cardPizza);
+renderGrid(tradicionais, 'g-trad',    cardPizza);
+renderGrid(porcoes,      'g-porcoes', cardPorcao);
+addPizza();
+</script>
+</body>
+</html>
